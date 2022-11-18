@@ -2,7 +2,7 @@
 
 ## For Quarto
 
-A plugin for [Reveal.js](https://revealjs.com) that adds indicators to show the amount of slides in a vertical stack. This repository concerns the Quarto version of the plugin only.
+A quarto extension for [Reveal.js](https://revealjs.com) that adds indicators to show the amount of slides in a vertical stack.
 
 [<img src="https://martinomagnifico.github.io/reveal.js-verticator/screenshot.png" width="100%">](https://martinomagnifico.github.io/reveal.js-verticator/demo.html)
 
