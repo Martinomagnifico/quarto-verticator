@@ -1,0 +1,248 @@
+---
+title: "Verticator"
+subtitle: "For Reveal.js and Quarto"
+format:
+  revealjs:
+    center: true
+    theme: dark
+    navigation-mode: vertical
+    transition: slide
+    background-transition: fade
+    controls-layout: bottom-right
+    chalkboard: false
+    menu: false
+    css: style.css
+    section-divs: true
+    verticator:
+      skipuncounted: true 
+revealjs-plugins:
+  - verticator
+
+---
+
+# What does it do?
+
+---
+
+Verticator shows vertical indicators
+
+---
+
+On vertical slides only
+
+
+
+## Themed bullets
+
+If you do not override the colors in the options, Verticator will use your theme colors: the bullets will be the same color as text in your presentation
+
+::: {style="font-size: 2rem; margin-top: 2rem"}
+The theme color is set as a CSS variable `(--c-theme-color)` in the Reveal element, and can also be used by other elements. On this page, it is rgb(255, 255, 255), because that is also the text color. 
+:::
+
+
+## Themed bullets {data-background="silver"}
+
+Verticator detects if the slide background is set to a different color. If you do not override the colors in the options, the bullets will still take on the heading- or textcolor of the slide.
+
+::: {style="font-size: 2rem; margin-top: 2rem"}
+On this page, the CSS variable `(--c-theme-color)` is rgb(34, 34, 34), because that is also the text color.
+:::
+
+
+___
+
+Verticator is configurable globally through the Reveal options, but the colors can also be changed per slide.
+
+
+
+# Global options {.center}
+
+The options below have user configurable options. In a regular Reveal.js presentation, these can be set through JavaScript, but Quarto makes it configurable through YAML options.
+
+::: columns
+::: {.column width="50%" style="font-size: 2rem"}
+1. themetag
+2. color
+3. inversecolor
+4. skipuncounted
+5. clickable
+:::
+
+::: {.column width="50%" style="font-size: 2rem"}
+6. position
+7. offset
+8. autogenerate
+9. scale
+10. tooltip
+:::
+:::
+
+
+
+
+## Option 1: themetag
+
+Verticator uses your headings to get the color for the bullets, but you can also use other elements:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      themetag: 'p'
+```
+
+## Option 2: color
+
+You can override the (themed) color of the bullets to a specific color. You can use named colors, hex and rgb:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      color: 'yellow'
+```
+
+## Option 3: inversecolor
+
+You can override the (themed) inverse color of the bullets to a specific color. These apply if a slide has an inverse color to the main background of the theme.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      inversecolor: 'red'
+```
+
+## Option 4: skipuncounted {data-visibility="uncounted"}
+
+To omit bullets in certain slides, set a data-attribute `data-visibility="uncounted"` to the slide. Then set this option (disabled by default, enabled here) to true:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      skipuncounted: true
+```
+
+## Option 5: clickable
+
+Clicking on a a Verticator bullet jumps to to the corresponding page. This behaviour is enabled by default but can be disabled.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      clickable: false
+```
+
+
+## Option 6: position
+
+Verticator is automatically positioned depending on the `rtl` setting of Reveal.js. This setting is used in languages like Hebrew and Arabic. Verticator will be on the left in that case. It can also be manually positioned like this:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      position: 'left' # or 'right'
+```
+
+
+## Option 7: offset
+
+By default, Verticator is positioned `3vmin` off the edge of the presentation. It can be set to any other valid CSS size and unit:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      offset: '40px'
+```
+
+
+## Option 8: autogenerate
+
+Verticator will autogenerate bullets. In presentations with huge vertical stacks, this can result in an unsightly column of bullets. The user can then disable the autogeneration like this:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      autogenerate: false
+```
+
+
+## Option 9: tooltip
+
+Verticator can show tooltips of page titles, like this:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      tooltip: 'data-name'
+```
+
+:::{style="font-size: 2rem"}
+It is turned off by default but can be enabled with these options:
+
+* `tooltip: 'data-name'` or any other attribute of the vertical slide.
+* `tooltip: 'auto'`. This will check titles of each slide in the order: data-verticator-tooltip, data-name, title, and if none found, headings inside each slide in the order: h1, h2, h3, h4.
+:::
+
+
+## Option 10: scale
+
+Verticator will scale with the same ratio as the Reveal slides, but only up. To make the Verticator even bigger, you can manually set a scale. It is set to 1 by default, but can be changed like this:
+
+``` yaml
+format:
+  revealjs:
+    ...
+    verticator:
+      scale: 1.2
+```
+
+
+# Slide options
+
+1. Force inverse color
+2. Force regular color
+3. Force specific color
+
+## Option 1: Force inverse color {data-background="dimgray" data-verticator="inverse"}
+
+Force the bullets to use the inverse color with a data-attribute of `data-verticator="inverse"`, even on slides with unchanged background colors.
+
+## Option 2: Force regular color {data-background="silver" data-verticator="regular"}
+
+Force the bullets to use the regular color with a data-attribute of `data-verticator="regular"`, even on slides with inverse background colors.
+
+## Option 3: Force specific color {data-verticator="deeppink"}
+
+The Verticator color can also be set specifically (per slide) with a data-attribute of `data-verticator="*"` where the wildcard is a CSS color.
+
+
+
+# Don’t overdo it
+
+Limit vertical slides. You probably don’t want 30 bullets on the right-hand side of your presentation.
+
+---
+
+Really
+
+---
+
+For more demos go to the
+[Verticator plugin](https://github.com/Martinomagnifico/reveal.js-verticator) for Reveal.js

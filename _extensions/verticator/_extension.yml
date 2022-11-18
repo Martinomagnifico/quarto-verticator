@@ -1,0 +1,22 @@
+title: Verticator
+author:  Martijn De Jongh (Martino)
+version: 1.2.2
+quarto-required: ">=1.2.198"
+contributes:
+  revealjs-plugins:
+    -
+      name: Verticator
+      script: verticator.js
+      stylesheet: verticator.css
+      config:
+        verticator:
+          themetag: 'h1'
+          color: ''
+          inversecolor: ''
+          skipuncounted: false
+          clickable: true
+          position: 'auto'
+          offset: '3vmin'
+          autogenerate: true
+          tooltip: false
+          scale: 1

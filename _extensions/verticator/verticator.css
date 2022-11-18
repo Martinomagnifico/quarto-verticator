@@ -1,0 +1,183 @@
+ul.verticator {
+  opacity: 0;
+  will-change: color;
+  color: white;
+  color: var(--v-forcecolor, var(--v-color, var(--c-theme-color, white)));
+  -webkit-transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  list-style: none;
+  right: auto;
+  left: auto;
+  margin: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateZ(0);
+          transform: translateY(-50%) translateZ(0);
+  z-index: 10;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 12px;
+  padding: calc(12px * var(--verticator-scale));
+}
+ul.verticator.visible {
+  opacity: 0.6;
+}
+ul.verticator.visible:hover {
+  opacity: 1;
+}
+ul.verticator.no-click {
+  pointer-events: none;
+}
+ul.verticator li {
+  display: block;
+  position: relative;
+  will-change: color;
+  color: inherit;
+  margin: 0;
+  -webkit-transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: opacity 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  opacity: 0;
+}
+ul.verticator li a {
+  color: inherit;
+  will-change: color;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  width: calc(18px * var(--verticator-scale));
+  height: calc(18px * var(--verticator-scale));
+}
+ul.verticator li a:after {
+  content: "";
+  will-change: color;
+  color: inherit;
+  background-color: currentColor;
+  display: block;
+  width: calc(12px * var(--verticator-scale));
+  height: calc(12px * var(--verticator-scale));
+  opacity: 0.6;
+  -webkit-transform: translateZ(0) scale(0.4);
+  transform: translateZ(0) scale(0.4);
+  border-radius: 100%;
+  -webkit-transition: opacity 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: opacity 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 200ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 300ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -webkit-transition-delay: 50ms;
+       -o-transition-delay: 50ms;
+          transition-delay: 50ms;
+}
+ul.verticator li a:hover {
+  color: inherit;
+}
+ul.verticator li a:hover:after {
+  opacity: 1;
+  -webkit-transform: translateZ(0) scale(0.75);
+          transform: translateZ(0) scale(0.75);
+}
+ul.verticator li.active a {
+  cursor: default;
+}
+ul.verticator li.active a:after {
+  -webkit-transform: translateZ(0) scale(1);
+          transform: translateZ(0) scale(1);
+  opacity: 1;
+}
+ul.verticator.visible li {
+  opacity: 1;
+}
+
+.print-pdf .verticator,
+.overview .verticator {
+  display: none;
+}
+
+.verticator {
+  --verticator-tooltip-scale: 1;
+}
+
+.verticator .tooltip {
+  position: absolute;
+  top: 9px;
+  right: 30px;
+  top: calc(9px * var(--verticator-scale));
+  right: calc(30px * var(--verticator-scale) + 1.5px * var(--verticator-tooltip-scale) * var(--verticator-tooltip-scale));
+  -webkit-transform: translate3d(0, -50%, 1px);
+          transform: translate3d(0, -50%, 1px);
+  -webkit-box-shadow: calc(4px * var(--verticator-scale)) calc(6px * var(--verticator-scale)) calc(16px * var(--verticator-scale)) rgba(0, 0, 0, 0.25);
+          box-shadow: calc(4px * var(--verticator-scale)) calc(6px * var(--verticator-scale)) calc(16px * var(--verticator-scale)) rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  background: white;
+  font-size: calc(1.25rem * var(--verticator-tooltip-scale) * var(--verticator-scale));
+  padding: 0.4em 0.6em;
+  border-radius: 0.2em;
+  min-width: 30px;
+  max-width: 15em;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  color: black;
+}
+.verticator .tooltip span {
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  line-height: 1.25;
+}
+.verticator .tooltip::after {
+  content: "";
+  display: block;
+  width: 0.66em;
+  height: 0.66em;
+  background: white;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate3d(45%, -50%, -1px) rotate(45deg);
+          transform: translate3d(45%, -50%, -1px) rotate(45deg);
+}
+
+.verticator.left .tooltip {
+  right: auto;
+  left: calc(30px * var(--verticator-scale) + 1.5px * var(--verticator-tooltip-scale) * var(--verticator-tooltip-scale));
+  -webkit-box-shadow: calc(-4px * var(--verticator-scale)) calc(6px * var(--verticator-scale)) calc(16px * var(--verticator-scale)) rgba(0, 0, 0, 0.25);
+          box-shadow: calc(-4px * var(--verticator-scale)) calc(6px * var(--verticator-scale)) calc(16px * var(--verticator-scale)) rgba(0, 0, 0, 0.25);
+}
+.verticator.left .tooltip::after {
+  right: auto;
+  left: 0;
+  -webkit-transform: translate3d(-45%, -50%, -1px) rotate(45deg);
+          transform: translate3d(-45%, -50%, -1px) rotate(45deg);
+}
+
+.verticator li a + .tooltip {
+  pointer-events: none;
+  display: block;
+  opacity: 0;
+  -webkit-transition: opacity 0.125s ease-in-out;
+  -o-transition: opacity 0.125s ease-in-out;
+  transition: opacity 0.125s ease-in-out;
+  -webkit-transition-delay: 0.0625s;
+       -o-transition-delay: 0.0625s;
+          transition-delay: 0.0625s;
+}
+
+.verticator li a:hover + .tooltip {
+  opacity: 1;
+}
