@@ -4,14 +4,16 @@
 
 A quarto extension for [Reveal.js](https://revealjs.com) that adds indicators to show the amount of slides in a vertical stack.
 
-[<img src="https://martinomagnifico.github.io/reveal.js-verticator/screenshot.png" width="100%">](https://martinomagnifico.github.io/reveal.js-verticator/demo.html)
+[<img src="https://martinomagnifico.github.io/reveal.js-verticator/screenshot.png" width="100%">](https://martinomagnifico.github.io/quarto-verticator/demo.html)
 
 Sometimes you would like to have an indication of how many slides are remaining in a vertical stack. This plugin does just that. It is visually similar to the indicators at [fullPage.js](https://alvarotrigo.com/fullPage/). 
 
-* [Demo (dark theme, no options set)](https://martinomagnifico.github.io/reveal.js-verticator/demo.html)
-* [Dark theme with color options](https://martinomagnifico.github.io/reveal.js-verticator/demodarkcolor.html)
-* [Light theme, no color options](https://martinomagnifico.github.io/reveal.js-verticator/demolight.html)
-* [Light theme with color options](https://martinomagnifico.github.io/reveal.js-verticator/demolightcolor.html)
+
+The following demos are from the regular Reveal.js plugin, but the Quarto plugin works the same way:
+* [Demo (dark theme, no options set)](https://martinomagnifico.github.io/reveal.js-verticator/demo/demo.html)
+* [Dark theme with color options](https://martinomagnifico.github.io/reveal.js-verticator/demo/demodarkcolor.html)
+* [Light theme, no color options](https://martinomagnifico.github.io/reveal.js-verticator/demo/demolight.html)
+* [Light theme with color options](https://martinomagnifico.github.io/reveal.js-verticator/demo/demolightcolor.html)
 * [Tooltip demo](https://martinomagnifico.github.io/reveal.js-verticator/demotooltip.html)
 
 Don't overdo it. You probably don’t want 30 bullets on the right-hand side of your presentation.
@@ -90,4 +92,4 @@ If you like it, please star this repo.
 ## License
 MIT licensed
 
-Copyright (C) 2022 Martijn De Jongh (Martino)
+Copyright (C) 2024 Martijn De Jongh (Martino)

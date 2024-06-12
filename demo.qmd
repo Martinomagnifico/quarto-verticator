@@ -11,7 +11,7 @@ format:
     controls-layout: bottom-right
     chalkboard: false
     menu: false
-    css: style.css
+    css: demo_files/assets/css/style.css
     section-divs: true
     verticator:
       skipuncounted: true 
