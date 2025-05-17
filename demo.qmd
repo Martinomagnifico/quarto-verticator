@@ -80,7 +80,6 @@ The options below have user configurable options. In a regular Reveal.js present
 
 
 
-
 ## Option 1: themetag
 
 Verticator uses your headings to get the color for the bullets, but you can also use other elements:
@@ -170,7 +169,7 @@ format:
 
 ## Option 8: autogenerate
 
-Verticator will autogenerate bullets. In presentations with huge vertical stacks, this can result in an unsightly column of bullets. The user can then disable the autogeneration like this:
+Verticator needs a UL with the class 'verticator' to insert the indicators. If there is not one already in the HTML, Verticator will generate it automatically for you. This can be disabled by setting the option `autogenerate` to `false`.
 
 ``` yaml
 format:
@@ -197,20 +196,20 @@ format:
 It is turned off by default but can be enabled with these options:
 
 * `tooltip: 'data-name'` or any other attribute of the vertical slide.
-* `tooltip: 'auto'`. This will check titles of each slide in the order: data-verticator-tooltip, data-name, title, and if none found, headings inside each slide in the order: h1, h2, h3, h4.
+* `tooltip: true` or `tooltip: 'auto'`. This will check titles of each slide in the order: data-verticator-tooltip, data-name, title, and if none found, headings inside each slide in the order: h1, h2, h3, h4.
 :::
 
 
 ## Option 10: scale
 
-Verticator will scale with the same ratio as the Reveal slides, but only up. To make the Verticator even bigger, you can manually set a scale. It is set to 1 by default, but can be changed like this:
+Verticator will scale with the same ratio as the Reveal slides. To tweak that scaling, you can manually set it.
 
 ``` yaml
 format:
   revealjs:
     ...
     verticator:
-      scale: 1.2
+      scale: 1 #Can be set to a value between 0.5 and 2.
 ```
 
 
